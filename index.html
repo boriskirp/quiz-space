@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КВІЗ інформаційного простору: Метод ППО</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; background: #fafafa; color: #2c3e50; }
+        
+        /* Сайдбар-навігатор */
+        #sidebar-framework {
+            width: 300px; height: 100vh; background: #fff; padding: 25px;
+            position: fixed; box-shadow: 2px 0 15px rgba(0,0,0,0.05);
+            border-right: 4px solid #00ff88; overflow-y: auto;
+            z-index: 10;
+        }
+        h2 { color: #1a1a1a; font-size: 1.4em; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .category-title { font-weight: bold; color: #95a5a6; margin-top: 25px; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1px; }
+        .sidebar-term { padding: 10px 15px; cursor: pointer; border-radius: 8px; transition: 0.2s; font-size: 0.95em; margin: 5px 0; border: 1px solid transparent; }
+        .sidebar-term:hover { background: #f0fff4; color: #008844; border-color: #00ff88; }
+
+        /* Контентна зона */
+        #main-content { margin-left: 350px; padding: 60px; max-width: 850px; line-height: 1.7; }
+        h1 { font-size: 2.5em; color: #1a1a1a; margin-bottom: 30px; }
+        .description { font-size: 1.2em; color: #555; margin-bottom: 40px; }
+        .orchestrator-term { 
+            border-bottom: 2px dashed #00ff88; cursor: pointer; font-weight: 600; color: #008844; transition: 0.3s;
+        }
+        .orchestrator-term:hover { background: #e6fffa; color: #000; }
+
+        /* Попап-Квіз */
+        #popup {
+            position: fixed; width: 380px; background: #fff; border-radius: 16px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15); display: none; z-index: 1000;
+            padding: 25px; border: 1px solid #e0e0e0; animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .popup-header { font-size: 1.1em; font-weight: bold; color: #1a1a1a; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .action-list { padding-left: 0; list-style: none; margin: 0; }
+        .action-list li { margin-bottom: 12px; font-size: 0.95em; padding-left: 20px; position: relative; color: #444; }
+        .action-list li::before { content: "→"; position: absolute; left: 0; color: #00ff88; font-weight: bold; }
+
+        /* Контакти */
+        .contact-section { margin-top: 50px; padding: 30px; background: #1a1a1a; color: #fff; border-radius: 12px; }
+        .contact-btn { display: inline-block; padding: 12px 25px; background: #00ff88; color: #000; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; }
+
+        /* Ефекти */
+        .activation-symbol {
+            position: absolute; font-size: 2.5em; pointer-events: none;
+            animation: floatUp 0.8s ease-out forwards; z-index: 1001;
+        }
+        @keyframes floatUp { 0% { opacity: 0; transform: scale(0.5); } 50% { opacity: 1; } 100% { opacity: 0; transform: translateY(-80px) scale(1.2); } }
+
+        /* Адаптивність для мобільних пристроїв */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            
+            #sidebar-framework {
+                width: 100%; height: auto; position: relative;
+                border-right: none; border-bottom: 4px solid #00ff88;
+                padding: 15px; box-sizing: border-box;
+            }
+
+            #main-content {
+                margin-left: 0; padding: 20px;
+                font-size: 1em;
+            }
+
+            #popup {
+                width: 90%; /* Попап майже на весь екран по ширині */
+                left: 5% !important; /* Центрування */
+                box-sizing: border-box;
+            }
+
+            h1 { font-size: 1.8em; }
+        }
+
+        /* Додатковий стиль для зручності кліків на смартфоні */
+        .sidebar-term {
+            display: inline-block; /* Щоб терміни йшли один за одним на мобільних */
+            margin: 5px;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar-framework">
+        <h2>ППО(GPS:Привіт-Паспорт-Обсяг)</h2>
+        <div class="category-title">🔍 Крок 1: ПРИВІТ</div>
+        <div class="sidebar-term" data-term="намір">Намір повідомлення</div>
+        <div class="sidebar-term" data-term="роль">Пропонована роль</div>
+        
+        <div class="category-title">🧩 Крок 2: ПАСПОРТ</div>
+        <div class="sidebar-term" data-term="фундамент">Об'єктивний очевидний закон</div>
+        <div class="sidebar-term" data-term="прописка">Прописка в реальності</div>
+        
+        <div class="category-title">📐 Крок 3: ОБСЯГ</div>
+        <div class="sidebar-term" data-term="горизонт">Горизонт чи Тунель?</div>
+        <div class="sidebar-term" data-term="ціна">Ціна інтеграції</div>
+    </div>
+
+    <div id="main-content">
+        <h1>КВІЗ: Метод ППО(Привіт-Паспорт-Обсяг): Особисте Мислення(Масштабований досвід)</h1>
+        <p class="description">Це ваш особистий важіль для роботи в інформаційному просторі. Замість того, щоб бути об'єктом впливу, станьте оператором сенсів.</p>
+        
+        <p>Кожне повідомлення починається з <span class="orchestrator-term" data-term="намір">Привітання</span>. Це точка, де визначається намір автора та ваша майбутня <span class="orchestrator-term" data-term="роль">Роль</span> у цій грі, тобто що це за інформація!</p>
+        
+        <p>Харизму — перевіряйте! <span class="orchestrator-term" data-term="фундамент">Паспорт</span> ідеї. Чи має цей сенс об'єктивний закон, або це лише суб'єктивне забарвлення? Тільки <span class="orchestrator-term" data-term="прописка">Прописка в реальності</span> робить інформацію інструментом, а не вірусом.</p>
+        
+        <p>Оцінюйте зразу інформаційний простір!<span class="orchestrator-term" data-term="горизонт">Обсяг</span>. Скільки місця ця думка забере у вашому житті? Чи варта <span class="orchestrator-term" data-term="ціна">Ціна інтеграції</span> того результату, який вам обіцяють?</p>
+
+        <div class="contact-section">
+            <h3>Маєте власний досвід або запитання?</h3>
+            <p>Цей інструмент — демократична пропозиція. Ви можете звернутися до автора для обговорення фільтрації сенсів або запропонувати свій кейс.</p>
+            <a href="https://github.com/ваш-профіль" class="contact-btn">Зв'язатися з автором</a>
+        </div>
+    </div>
+
+    <div id="popup">
+        <div id="popup-header" class="popup-header"></div>
+        <ul id="action-list" class="action-list"></ul>
+    </div>
+
+    <script>
+        const knowledgeBase = {
+            "намір": {
+                title: "Намір повідомлення",
+                symbol: "👋",
+                actions: [
+                    "Яка справжня мета входу (продаж, допомога, маніпуляція)?",
+                    "Чиста увага чи спроба захопити ваш ресурс?",
+                    "Чому це повідомлення з'явилося саме зараз?"
+                ]
+            },
+            "роль": {
+                title: "Пропонована роль",
+                symbol: "👤",
+                actions: [
+                    "Ким ви стаєте, приймаючи цю інформацію (учень, жертва, покупець)?",
+                    "Чи обмежує ця роль вашу автономію?",
+                    "Чи згодні ви на цей сценарій взаємодії?"
+                ]
+            },
+            "фундамент": {
+                title: "Об'єктивний закон",
+                symbol: "⚖️",
+                actions: [
+                    "Чи працює цей сенс без харизми автора?",
+                    "Це закон природи/логіки чи тимчасова мода?",
+                    "Чи можна перевірити це твердження самостійно?"
+                ]
+            },
+            "прописка": {
+                title: "Прописка в реальності",
+                symbol: "🆔",
+                actions: [
+                    "Де цей фундамент у фізичному світі?",
+                    "Це інструмент для дії чи лише красива абстракція?",
+                    "Чи є у автора паспорт власного результату, а не лише теорія?"
+                ]
+            },
+            "горизонт": {
+                title: "Горизонт чи Тунель?",
+                symbol: "🌅",
+                actions: [
+                    "Ця думка відкриває нові шляхи чи заганяє в рамки?",
+                    "Ви бачите більше можливостей чи лише одну 'правильну'?",
+                    "Чи стає ваше мислення гнучкішим після контакту?"
+                ]
+            },
+            "ціна": {
+                title: "Ціна інтеграції",
+                symbol: "📐",
+                actions: [
+                    "Скільки часу та енергії вимагає цей 'план'?",
+                    "Від чого вам доведеться відмовитися сьогодні заради цього 'завтра'?",
+                    "Чи не перевищує обсяг витрат потенційну користь?"
+                ]
+            }
+        };
+
+        const popup = document.getElementById('popup');
+        const header = document.getElementById('popup-header');
+        const list = document.getElementById('action-list');
+
+        function activate(termKey, x, y, clientX, clientY) {
+            const data = knowledgeBase[termKey];
+            if (!data) return;
+
+            // Ефект активації (символ)
+            const effect = document.createElement('div');
+            effect.className = 'activation-symbol';
+            effect.textContent = data.symbol;
+            effect.style.left = x + 'px';
+            effect.style.top = y + 'px';
+            document.body.appendChild(effect);
+            setTimeout(() => effect.remove(), 800);
+
+            // Наповнення попапу
+            header.innerHTML = `<span>${data.symbol}</span> ${data.title}`;
+            list.innerHTML = '';
+            data.actions.forEach(act => {
+                const li = document.createElement('li');
+                li.textContent = act;
+                list.appendChild(li);
+            });
+
+            popup.style.display = 'block';
+
+            // Розумне позиціонування попапу поруч із курсором/терміном
+            let posX = clientX + 20; 
+            let posY = clientY + 10;
+
+            // Перевірка правої межі екрана
+            if (posX + 380 > window.innerWidth) {
+                posX = window.innerWidth - 400;
+            }
+
+            // Перевірка нижньої межі екрана
+            if (posY + popup.offsetHeight > window.innerHeight) {
+                posY = window.innerHeight - popup.offsetHeight - 20;
+            }
+
+            popup.style.left = posX + 'px';
+            popup.style.top = posY + 'px';
+            popup.style.position = 'fixed'; // Залишаємо фіксованим для зручності
+        }
+
+        // Оновлений обробник кліків
+        document.body.addEventListener('click', (e) => {
+            const term = e.target.dataset.term;
+            if (term) {
+                // Передаємо page (для символу) та client (для попапу) координати
+                activate(term, e.pageX, e.pageY, e.clientX, e.clientY);
+            } else if (!popup.contains(e.target)) {
+                popup.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
