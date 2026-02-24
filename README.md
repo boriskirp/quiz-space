@@ -62,3 +62,7 @@ The project is built for open use. The code is based on the "Knowledge Orchestra
 If you want to share your experience using the filter or suggest new associations for the quiz — reach out to the author via Issues.
 
 Life is not about executing someone else's code, it's about writing your own.
+---
+### 📩 Контакти та взаємодія
+* **Написати автору:** [Створити повідомлення (Gmail)](https://mail.google.com/mail/?view=cm&fs=1&to=mr.karalyp@gmail.com)
+* **Репозиторій проекту:** [GitHub: quiz-space](https://github.com/boriskirp/quiz-space)
