@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ментально-когнітивний фільтр: Розкодування</title>
     
-    <meta property="og:title" content="Ви це знали, але чи застосовуєте?">
-    <meta property="og:description" content="Інструмент для активації особистого інформаційного потоку. Знайди свій сюрприз у рукаві.">
+    <!-- СЕО-ОПТИМІЗАЦІЯ ПІД ТРЕНДИ 2026 -->
+    <title>Ментально-когнітивний фільтр: Розкодування інформації та Паспорт Легалізації</title>
+    <meta name="description" content="Інструмент для активації особистого інформаційного потоку за методом ППО. Отримання КЕП, реєстрація ФОП, доступ до реєстрів та захист конфіденційної інформації.">
+    <meta name="keywords" content="метод ППО, ментальний фільтр, інформація з державного реєстру, конфіденційна інформація, КЕП, реєстрація ФОП, Борис Пупченко">
     
+    <meta property="og:title" content="Ви це знали, але чи застосовуєте? Метод ППО">
+    <meta property="og:description" content="Інструмент для активації особистого інформаційного потоку. Знайди свій сюрприз у рукаві від ФОП Пупченко Б.П.">
     <meta property="og:image" content="https://boriskirp.github.io/quiz-space/preview-image.png">
+    <meta property="og:url" content="https://boriskirp.github.io/quiz-space/">
+    <meta property="og:type" content="website">
+
+    <!-- ГЛОБАЛЬНИЙ ТЕГ GOOGLE ANALYTICS (Встав свій ID замість G-XXXXXXXXXX) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; background: #fafafa; color: #2c3e50; }
         
@@ -17,21 +32,47 @@
             width: 300px; height: 100vh; background: #fff; padding: 25px;
             position: fixed; box-shadow: 2px 0 15px rgba(0,0,0,0.05);
             border-right: 4px solid #00ff88; overflow-y: auto;
-            z-index: 10;
+            z-index: 10; box-sizing: border-box;
         }
-        h2 { color: #1a1a1a; font-size: 1.4em; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        h2 { color: #1a1a1a; font-size: 1.4em; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
         .category-title { font-weight: bold; color: #95a5a6; margin-top: 25px; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1px; }
         .sidebar-term { padding: 10px 15px; cursor: pointer; border-radius: 8px; transition: 0.2s; font-size: 0.95em; margin: 5px 0; border: 1px solid transparent; }
         .sidebar-term:hover { background: #f0fff4; color: #008844; border-color: #00ff88; }
 
         /* Контентна зона */
-        #main-content { margin-left: 350px; padding: 60px; max-width: 850px; line-height: 1.7; }
-        h1 { font-size: 2.5em; color: #1a1a1a; margin-bottom: 30px; }
-        .description { font-size: 1.2em; color: #555; margin-bottom: 40px; }
+        #main-content { margin-left: 330px; padding: 40px 60px; max-width: 750px; line-height: 1.7; }
+        h1 { font-size: 2.2em; color: #1a1a1a; margin-bottom: 20px; }
+        .description { font-size: 1.1em; color: #555; margin-bottom: 30px; }
+        
         .orchestrator-term { 
             border-bottom: 2px dashed #00ff88; cursor: pointer; font-weight: 600; color: #008844; transition: 0.3s;
         }
         .orchestrator-term:hover { background: #e6fffa; color: #000; }
+
+        /* Картки практичних дій (Твоє нове Роздоріжжя) */
+        .routing-block {
+            background: #fff; border: 1px solid #e0e0e0; border-radius: 12px;
+            padding: 20px; margin-top: 25px; border-left: 5px solid #00ff88;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .routing-block h3 { margin-top: 0; color: #1a1a1a; font-size: 1.2em; }
+        .routing-block p { font-size: 0.95em; color: #666; margin: 5px 0 15px 0; }
+        
+        /* Кнопки навігації */
+        .hub-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            margin: 5px 8px 5px 0; padding: 10px 16px;
+            background: #f8f9fa; border: 1px solid #ddd;
+            border-radius: 6px; color: #333; text-decoration: none;
+            font-weight: bold; font-size: 0.9em; transition: 0.2s; cursor: pointer;
+        }
+        .hub-btn:hover { background: #e8f5e9; color: #008844; border-color: #00ff88; }
+        .hub-btn.youtube { color: #ff0000; }
+        .hub-btn.youtube:hover { background: #ffebee; border-color: #ff0000; }
+        .hub-btn.facebook { color: #1877f2; }
+        .hub-btn.facebook:hover { background: #e7f3ff; border-color: #1877f2; }
+        .hub-btn.accent { background: #1a1a1a; color: #00ff88; border: none; }
+        .hub-btn.accent:hover { background: #333; }
 
         /* Попап-Квіз */
         #popup {
@@ -45,88 +86,100 @@
         .action-list li { margin-bottom: 12px; font-size: 0.95em; padding-left: 20px; position: relative; color: #444; }
         .action-list li::before { content: "→"; position: absolute; left: 0; color: #00ff88; font-weight: bold; }
 
-        /* Контакти */
-        .contact-section { margin-top: 50px; padding: 30px; background: #1a1a1a; color: #fff; border-radius: 12px; }
-        .contact-btn { display: inline-block; padding: 12px 25px; background: #00ff88; color: #000; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; }
-
-        /* Ефекти */
+        /* Ефекти хмаринок */
         .activation-symbol {
             position: absolute; font-size: 2.5em; pointer-events: none;
             animation: floatUp 0.8s ease-out forwards; z-index: 1001;
         }
         @keyframes floatUp { 0% { opacity: 0; transform: scale(0.5); } 50% { opacity: 1; } 100% { opacity: 0; transform: translateY(-80px) scale(1.2); } }
 
-        /* Адаптивність для мобільних пристроїв */
+        /* Адаптивність для смартфонів */
         @media (max-width: 768px) {
             body { flex-direction: column; }
-            
             #sidebar-framework {
                 width: 100%; height: auto; position: relative;
                 border-right: none; border-bottom: 4px solid #00ff88;
-                padding: 15px; box-sizing: border-box;
+                padding: 15px;
             }
-
-            #main-content {
-                margin-left: 0; padding: 20px;
-                font-size: 1em;
-            }
-
-            #popup {
-                width: 90%; /* Попап майже на весь екран по ширині */
-                left: 5% !important; /* Центрування */
-                box-sizing: border-box;
-            }
-
+            #main-content { margin-left: 0; padding: 20px; }
+            #popup { width: 90%; left: 5% !important; }
             h1 { font-size: 1.8em; }
-        }
-
-        /* Додатковий стиль для зручності кліків на смартфоні */
-        .sidebar-term {
-            display: inline-block; /* Щоб терміни йшли один за одним на мобільних */
-            margin: 5px;
-            background: #f9f9f9;
+            .sidebar-term { display: inline-block; margin: 3px; background: #f9f9f9; }
         }
     </style>
 </head>
 <body>
+
+    <!-- ЛІВИЙ НАВІГАТОР (СЕНСОВИЙ КАРКАС) -->
     <div id="sidebar-framework">
-        <h2>ППО(GPS:Привіт-Паспорт-Обсяг)</h2>
+        <h2>ППО (GPS: Привіт-Паспорт-Обсяг)</h2>
         <div class="category-title">🔍 Крок 1: ПРИВІТ</div>
         <div class="sidebar-term" data-term="намір">Намір повідомлення</div>
         <div class="sidebar-term" data-term="роль">Пропонована роль</div>
         
         <div class="category-title">🧩 Крок 2: ПАСПОРТ</div>
-        <div class="sidebar-term" data-term="фундамент">Об'єктивний очевидний закон</div>
-        <div class="sidebar-term" data-term="прописка">Прописка в реальності</div>
+        <div class="sidebar-term" data-term="фундамент">Об'єктивний закон</div>
+        <div class="sidebar-term" data-term="propycka">Прописка в реальності</div>
         
         <div class="category-title">📐 Крок 3: ОБСЯГ</div>
         <div class="sidebar-term" data-term="горизонт">Горизонт чи Тунель?</div>
         <div class="sidebar-term" data-term="ціна">Ціна інтеграції</div>
     </div>
 
+    <!-- ПРАВИЙ КОНТЕНТНИЙ ХАБ (ПЕРЕХРЕСТЯ ДІЙ) -->
     <div id="main-content">
-        <h1>КВІЗ: Метод ППО(Привіт-Паспорт-Обсяг): Особисте Мислення(Масштабований досвід)</h1>
-        <p class="description">Це ваш особистий важіль для роботи в інформаційному просторі. Замість того, щоб бути об'єктом впливу, станьте оператором сенсів.</p>
+        <h1>КВІЗ: Метод ППО (Привіт-Паспорт-Обсяг)</h1>
+        <p class="description">Це ваш особистий важіль для роботи в інформаційному просторі. Замість того, щоб бути об'єктом впливу, станьте оператором сенсів. Нижче наведено матеріальні вектори активації кожного кроку.</p>
         
-        <p>Кожне повідомлення починається з <span class="orchestrator-term" data-term="намір">Привітання</span>. Це точка, де визначається намір автора та ваша майбутня <span class="orchestrator-term" data-term="роль">Роль</span> у цій грі, тобто що це за інформація!</p>
+        <p>Кожне повідомлення починається з <span class="orchestrator-term" data-term="намір">Привітання</span>. Це точка, де визначається намір автора та ваша майбутня <span class="orchestrator-term" data-term="роль">Роль</span> у цій грі. Щоб очистити цей крок від хаосу, використовуйте перевірені медіа-канали.</p>
         
-        <p>Харизму — перевіряйте! <span class="orchestrator-term" data-term="фундамент">Паспорт</span> ідеї. Чи має цей сенс об'єктивний закон, або це лише суб'єктивне забарвлення? Тільки <span class="orchestrator-term" data-term="прописка">Прописка в реальності</span> робить інформацію інструментом, а не вірусом.</p>
+        <!-- ВЕКТОР 1: МЕДІА ВТІЛЕННЯ (КРОК 1) -->
+        <div class="routing-block" style="border-left-color: #ff0000;">
+            <h3>Крок 1. Медіа-інструкції та Розбір Намірів</h3>
+            <p>Відео-розбори семантичної інженерії та відкритий простір для просторового мислення спільноти.</p>
+            <a href="https://www.youtube.com/@pypchenkoboris" target="_blank" class="hub-btn youtube" onclick="trackRoute('YouTube_Click')">
+                🎥 YouTube: Канал Бориса Пупченка
+            </a>
+            <a href="https://www.facebook.com/groups/137607950103368" target="_blank" class="hub-btn facebook" onclick="trackRoute('Facebook_Group_Click')">
+                👥 Спільнота взаємодії (Facebook)
+            </a>
+        </div>
         
-        <p>Оцінюйте зразу інформаційний простір!<span class="orchestrator-term" data-term="горизонт">Обсяг</span>. Скільки місця ця думка забере у вашому житті? Чи варта <span class="orchestrator-term" data-term="ціна">Ціна інтеграції</span> того результату, який вам обіцяють?</p>
+        <p style="margin-top: 30px;">Харизму — перевіряйте! Це <span class="orchestrator-term" data-term="фундамент">Паспорт</span> ідеї. Чи має сенс об'єктивний закон? Тільки <span class="orchestrator-term" data-term="propycka">Прописка в реальності</span> робить інформацію інструментом, а не вірусом. В юридичному полі такою пропискою є державні інструменти верифікації бізнесу.</p>
+        
+        <!-- ВЕКТОР 2: ДЕРЖАВНЕ ВТІЛЕННЯ (КРОК 2) -->
+        <div class="routing-block" style="border-left-color: #007bff;">
+            <h3>Крок 2. Паспорт Легалізації та Державні Реєстри</h3>
+            <p>Отримання конфіденційної інформації, робота з держреєстрами речових прав та запуск легального ФОП.</p>
+            <a href="https://privatbank.ua/business/elektronnij-cifrovij-pidpis" target="_blank" class="hub-btn" onclick="trackRoute('Privat24_KEP_Click')">
+                📲 Отримати КЕП в Приват24-Бізнес
+            </a>
+            <a href="https://diia.gov.ua/" target="_blank" class="hub-btn" onclick="trackRoute('Diia_FOP_Click')">
+                🚀 Дія: Вхід та старт ФОП
+            </a>
+            <a href="https://kved.stat.gov.ua/" target="_blank" class="hub-btn" onclick="trackRoute('KVED_Select_Click')">
+                🔢 Довідник КВЕД
+            </a>
+        </div>
+        
+        <p style="margin-top: 30px;">Оцінюйте зразу інформаційний простір — його <span class="orchestrator-term" data-term="горизонт">Обсяг</span>. Скільки місця думка забере у житті? Чи варта <span class="orchestrator-term" data-term="ціна">Ціна інтеграції</span> обіцяного результату? Фіксуйте фінансові та правові межі взаємодії через офіційні договори.</p>
 
-        <div class="interaction-section" style="background: #1a1a1a; padding: 40px; border-radius: 15px; border: 2px dashed #00ff88; text-align: center; margin-top: 50px;">
-    <h3 style="color: #00ff88; font-size: 1.6em;">Яку назву дали б ви?</h3>
-    <p style="color: #ccc; margin-bottom: 25px;">Ваша асоціація — це ключ до розкодування. Поділіться своєю назвою або обговоріть ідеї інших у нашому просторі взаємодії.</p>
-    
-    <a href="https://www.facebook.com/groups/137607950103368" target="_blank" 
-       style="display: inline-block; background: #1877F2; color: white; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s;">
-       👥 Спільнота обговорення (Facebook)
-    </a>
-    
-    <p style="font-size: 0.8em; margin-top: 20px; opacity: 0.6;">Це простір для просторового мислення та обміну думками.</p>
-</div>
+        <!-- ВЕКТОР 3: ОФЕРТА (КРОК 3) -->
+        <div class="routing-block" style="border-left-color: #27ae60;">
+            <h3>Крок 3. Правовий Фундамент & Тарифи</h3>
+            <p>Умови інтелектуального супроводу, обмеження відповідальності (AS IS) та Публічна Оферта ФОП Пупченко Б.П.</p>
+            <a href="https://boriskirp.github.io/legal/" target="_blank" class="hub-btn accent" onclick="trackRoute('Open_Oferta_Click')">
+                ⚖️ Відкрити Публічну Оферту та Тарифи послуг
+            </a>
+        </div>
+
+        <p style="text-align: center; font-size: 0.8em; color: #7f8c8d; margin-top: 50px;">
+            © 2026 Інтернет-майданчик «Пупченко Борис Петрович» / ФОП Пупченко Б.П.<br>
+            Лише чисті дані та перевірені вектори дій.
+        </p>
     </div>
 
+    <!-- ДИНАМІЧНИЙ ОРКЕСТРАТОР ПОПАПІВ -->
     <div id="popup">
         <div id="popup-header" class="popup-header"></div>
         <ul id="action-list" class="action-list"></ul>
@@ -161,7 +214,7 @@
                     "Чи можна перевірити це твердження самостійно?"
                 ]
             },
-            "прописка": {
+            "propycka": {
                 title: "Прописка в реальності",
                 symbol: "🆔",
                 actions: [
@@ -198,7 +251,7 @@
             const data = knowledgeBase[termKey];
             if (!data) return;
 
-            // Ефект активації (символ)
+            // Анімаційний ефект вилітання символу
             const effect = document.createElement('div');
             effect.className = 'activation-symbol';
             effect.textContent = data.symbol;
@@ -207,7 +260,7 @@
             document.body.appendChild(effect);
             setTimeout(() => effect.remove(), 800);
 
-            // Наповнення попапу
+            // Наповнення даними
             header.innerHTML = `<span>${data.symbol}</span> ${data.title}`;
             list.innerHTML = '';
             data.actions.forEach(act => {
@@ -218,35 +271,37 @@
 
             popup.style.display = 'block';
 
-            // Розумне позиціонування попапу поруч із курсором/терміном
+            // Розумне позиціонування
             let posX = clientX + 20; 
             let posY = clientY + 10;
-
-            // Перевірка правої межі екрана
-            if (posX + 380 > window.innerWidth) {
-                posX = window.innerWidth - 400;
-            }
-
-            // Перевірка нижньої межі екрана
-            if (posY + popup.offsetHeight > window.innerHeight) {
-                posY = window.innerHeight - popup.offsetHeight - 20;
-            }
+            if (posX + 380 > window.innerWidth) posX = window.innerWidth - 400;
+            if (posY + popup.offsetHeight > window.innerHeight) posY = window.innerHeight - popup.offsetHeight - 20;
 
             popup.style.left = posX + 'px';
             popup.style.top = posY + 'px';
-            popup.style.position = 'fixed'; // Залишаємо фіксованим для зручності
+            popup.style.position = 'fixed';
         }
 
-        // Оновлений обробник кліків
+        // Обробник інтерактивних кліків
         document.body.addEventListener('click', (e) => {
             const term = e.target.dataset.term;
             if (term) {
-                // Передаємо page (для символу) та client (для попапу) координати
                 activate(term, e.pageX, e.pageY, e.clientX, e.clientY);
             } else if (!popup.contains(e.target)) {
                 popup.style.display = 'none';
             }
         });
+
+        // Скрипт фіксації аналітики для Google Analytics
+        function trackRoute(eventName) {
+            console.log("Вектор руху зафіксовано:", eventName);
+            if (typeof gtag === 'function') {
+                gtag('event', eventName, {
+                    'event_category': 'PPO_Crossroads',
+                    'event_label': 'User_Action'
+                });
+            }
+        }
     </script>
 </body>
 </html>
