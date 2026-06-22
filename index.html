@@ -183,6 +183,38 @@
         <p style="margin-top: 30px;">Оцінюйте зразу інформаційний простір — його <span class="orchestrator-term" data-term="горизонт">Обсяг</span>. Скільки місця думка забере у житті? Чи варта <span class="orchestrator-term" data-term="ціна">Ціна інтеграції</span> обіцяного результату? Фіксуйте фінансові та правові межі взаємодії через офіційні договори.</p>
 
         <!-- ВЕКТОР 3: ОФЕРТА (КРОК 3) -->
+         <!-- ІНТЕРАКТИВНИЙ ТЕСТ-СИГНАЛ -->
+<div style="background: #fdfefe; border: 1px solid #d1f2eb; padding: 25px; border-radius: 12px; margin-top: 30px;">
+    <h3 style="color: #0e6251; margin-top:0;">📡 Тест-сигнал: Чи є у вас ментальний витік?</h3>
+    <p style="font-size: 0.9em; color: #666;">Відзначте, з чим ви стикаєтеся під час роботи з інформацією:</p>
+    <label style="display:block; margin-bottom:8px; cursor:pointer;">
+        <input type="checkbox" onchange="checkSignal()" class="signal-ch"> «Зберігаю 100 закладок у браузері/Telegram, які ніколи не відкриваю»
+    </label>
+    <label style="display:block; margin-bottom:8px; cursor:pointer;">
+        <input type="checkbox" onchange="checkSignal()" class="signal-ch"> «Штучний інтелект видає "галлюцинації", бо я не можу дати йому чітку структуру даних»
+    </label>
+    <label style="display:block; margin-bottom:8px; cursor:pointer;">
+        <input type="checkbox" onchange="checkSignal()" class="signal-ch"> «Мій проект залежить від хмарних сервісів, які можуть заблокувати або змінити умови у будь-який момент»
+    </label>
+    <div id="signal-result" style="margin-top:15px; font-weight:bold; color:#e74c3c; display:none; font-size:0.95em;">
+        🚨 Сигнал спотворено! Вам потрібна локальна архітектура знань. Скасуйте пошук і подивіться тарифи нижче.
+    </div>
+</div>
+
+<script>
+function checkSignal() {
+    const checkboxes = document.querySelectorAll('.signal-ch');
+    const result = document.getElementById('signal-result');
+    let checkedCount = 0;
+    checkboxes.forEach(ch => { if(ch.checked) checkedCount++; });
+    if(checkedCount > 0) {
+        result.style.display = 'block';
+        if(typeof fbq === 'function') fbq('trackCustom', 'Signal_Leak_Detected');
+    } else {
+        result.style.display = 'none';
+    }
+}
+</script>
         <div class="routing-block" style="border-left-color: #27ae60;">
             <h3>Крок 3. Правовий Фундамент & Тарифи</h3>
             <p>Умови інтелектуального супроводу, обмеження відповідальності (AS IS) та Публічна Оферта ФОП Пупченко Б.П.</p>
