@@ -15,14 +15,32 @@
     <meta property="og:url" content="https://boriskirp.github.io/quiz-space/">
     <meta property="og:type" content="website">
 
-    <!-- ГЛОБАЛЬНИЙ ТЕГ GOOGLE ANALYTICS (Встав свій ID замість G-XXXXXXXXXX) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- ГЛОБАЛЬНИЙ ТЕГ GOOGLE ANALYTICS (АКТИВОВАНО) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6J8HL5RP1H"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-6J8HL5RP1H');
     </script>
+
+    <!-- META PIXEL CODE (АКТИВОВАНО & ОЧИЩЕНО) -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1371446488460524');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1371446488460524&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- END META PIXEL CODE -->
 
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; background: #fafafa; color: #2c3e50; }
@@ -49,7 +67,7 @@
         }
         .orchestrator-term:hover { background: #e6fffa; color: #000; }
 
-        /* Картки практичних дій (Твоє нове Роздоріжжя) */
+        /* Картки практичних дій (Роздоріжжя) */
         .routing-block {
             background: #fff; border: 1px solid #e0e0e0; border-radius: 12px;
             padding: 20px; margin-top: 25px; border-left: 5px solid #00ff88;
@@ -251,7 +269,6 @@
             const data = knowledgeBase[termKey];
             if (!data) return;
 
-            // Анімаційний ефект вилітання символу
             const effect = document.createElement('div');
             effect.className = 'activation-symbol';
             effect.textContent = data.symbol;
@@ -260,7 +277,6 @@
             document.body.appendChild(effect);
             setTimeout(() => effect.remove(), 800);
 
-            // Наповнення даними
             header.innerHTML = `<span>${data.symbol}</span> ${data.title}`;
             list.innerHTML = '';
             data.actions.forEach(act => {
@@ -271,7 +287,6 @@
 
             popup.style.display = 'block';
 
-            // Розумне позиціонування
             let posX = clientX + 20; 
             let posY = clientY + 10;
             if (posX + 380 > window.innerWidth) posX = window.innerWidth - 400;
@@ -282,7 +297,6 @@
             popup.style.position = 'fixed';
         }
 
-        // Обробник інтерактивних кліків
         document.body.addEventListener('click', (e) => {
             const term = e.target.dataset.term;
             if (term) {
@@ -292,14 +306,21 @@
             }
         });
 
-        // Скрипт фіксації аналітики для Google Analytics
+        // СИНХРОННИЙ ТРЕКІНГ ДЛЯ GOOGLE ТА FACEBOOK PIXEL
         function trackRoute(eventName) {
             console.log("Вектор руху зафіксовано:", eventName);
+            
+            // Запис в Google Analytics
             if (typeof gtag === 'function') {
                 gtag('event', eventName, {
                     'event_category': 'PPO_Crossroads',
                     'event_label': 'User_Action'
                 });
+            }
+            
+            // Запис у Facebook Pixel (Подія кастомного кліку)
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', eventName);
             }
         }
     </script>
